@@ -1,0 +1,14 @@
+version: '3'
+services:
+  kotlin:
+    build: 
+      context: .  
+      dockerfile: ./kotlin/Dockerfile
+    container_name: kotlin
+    working_dir: /app
+    volumes:
+      - ./demo:/app
+      # - .:/app
+    ports:
+      - "8080:8080"
+    command: ./gradlew bootRun
